@@ -4,7 +4,9 @@ import random
 gameWindow=Tk()
 gameWindow.title("Memory game")
 
-btn0=Button(width=20, height=10)
+bgImg=ImageTk.PhotoImage(Image.open('skoda.jpg'))
+
+btn0=Button(width=20, height=10, image=bgImg)
 btn1=Button(width=20, height=10)
 btn2=Button(width=20, height=10)
 btn3=Button(width=20, height=10)
@@ -25,5 +27,11 @@ btn6.grid(row = 1, column = 1)
 btn7.grid(row = 1, column = 2)
 btn8.grid(row = 1, column = 3)
 btn9.grid(row = 1, column = 4)
+
+myImg1=ImageTk.PhotoImage(Image.open("bmw.png"))
+myImg2=ImageTk.PhotoImage(Image.open("honda.jpg"))
+myImg3=ImageTk.PhotoImage(Image.open("merc.jpg"))
+myImg4=ImageTk.PhotoImage(Image.open("porsch.png"))
+myImg5=ImageTk.PhotoImage(Image.open("skoda.jpg"))
 
 gameWindow.mainloop()
