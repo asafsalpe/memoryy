@@ -26,5 +26,4 @@ btn7.grid(row = 1, column = 2)
 btn8.grid(row = 1, column = 3)
 btn9.grid(row = 1, column = 4)
 
-btn10=Button
 gameWindow.mainloop()
