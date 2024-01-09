@@ -1,3 +1,4 @@
+
 from tkinter import*
 from PIL import ImageTk, Image
 import random
@@ -12,6 +13,7 @@ correctAnswers=0
 answers=[]
 answer_dict={}
 
+
 def btnClick(btn,number):
     global count, correctAnswers, answers, answer_dict
     if btn['image']=='pyimage1'and count<2:
@@ -23,17 +25,20 @@ def btnClick(btn,number):
         if ImageList[answers[0]]==ImageList[answers[1]]:
             for key in answer_dict:
                 key['state']=DISABLED
+            correctAnswers+=2
             if correctAnswers==2:
-                messagebox.showinfo("Matching images", "You've guessed correctly")
-            else:
-                messagebox.showinfo("No matching images","You've guessed incorrectly")
-                for key in answer_dict:
-                    key['image']="pyimage6"
-                count=0
-                answers=[]
-                answer_dict={}
-
-                return 0
+                messagebox.showinfo("Matching images", "Correct")
+                correctAnswers=0
+            
+        else:
+            messagebox.showinfo("Matching images","Incorrect")
+            for key in answer_dict:
+                key['image']="pyimage1"
+        count=0
+        answers=[]
+        answer_dict={}
+    
+    return 0
 
 btn0=Button(width=150, height=150, image=bgImg, command=lambda:btnClick(btn0,0))
 btn1=Button(width=150, height=150, image=bgImg, command=lambda:btnClick(btn1,1))
@@ -57,11 +62,11 @@ btn7.grid(row = 1, column = 2)
 btn8.grid(row = 1, column = 3)
 btn9.grid(row = 1, column = 4)
 
-myImg1=ImageTk.PhotoImage(Image.open("bmw.jpg").resize((100,100)))
-myImg2=ImageTk.PhotoImage(Image.open("honda.jpg").resize((100,100)))
-myImg3=ImageTk.PhotoImage(Image.open("merc.jpg").resize((100,100)))
-myImg4=ImageTk.PhotoImage(Image.open("porsch.jpg").resize((100,100)))
-myImg5=ImageTk.PhotoImage(Image.open("skoda.jpg").resize((100,100)))
+myImg1=ImageTk.PhotoImage(Image.open("bmw.jpg").resize((150,150)))
+myImg2=ImageTk.PhotoImage(Image.open("honda.jpg").resize((150,66)))
+myImg3=ImageTk.PhotoImage(Image.open("merc.jpg").resize((150,150)))
+myImg4=ImageTk.PhotoImage(Image.open("porsch.jpg").resize((150,58)))
+myImg5=ImageTk.PhotoImage(Image.open("skoda.jpg").resize((150,114)))
 
 ImageList=[myImg1,myImg1,myImg2,myImg2,myImg3,myImg3,myImg4,myImg4,myImg5,myImg5]
 random.shuffle(ImageList)
